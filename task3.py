@@ -8,13 +8,19 @@
 
 
 phone = input('Введите номер телефона: ')
-if len(phone) < 12:
+new_phone = str()
+count = 0
+
+for char in phone:
+    if char.isdigit():
+        count += 1
+
+if count < 10: 
     print('Недостаточно цифр, повторите ввод')
-else:
-    symbols = ['+', '-', ' ', ')', '(']
-    for symbol in symbols:
-        if symbol in phone:
-            phone = phone.replace(symbol, '')
-if phone[0:2] != '38':
-    phone = '38' + phone
-print(f'Phone: {phone}')
+else:    
+    for char in phone:
+        if char.isdigit():
+            new_phone += char
+    if new_phone[0:2] != '38':
+        new_phone = '38' + new_phone
+    print(f'Phone: {new_phone}')
